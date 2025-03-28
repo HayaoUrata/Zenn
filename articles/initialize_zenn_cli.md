@@ -7,16 +7,27 @@ published: true
 published_at: 2025-03-28 12:40
 ---
 
-## 初期化
-一番最初はローカルのディレクトリを初期化
+## CLIをインストール
+```
+$ npm init --yes
+```
+最初にローカルのディレクトリを初期化
+```
+npm install zenn-cli
+```
+
+
+## セットアップ
 ```
 $ npx zenn init
 ```
 ->articlesディレクトリが作られる
 ->この下に記事が追加されてく
+->一旦booksは無視
 
 ## 記事の作成
 ```
+
 $ npx zenn new:article
 $ npx zenn new:article --slug 記事のスラッグ --title タイトル --type idea --emoji ✨
 ```
