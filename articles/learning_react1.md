@@ -42,4 +42,5 @@ Single Page Application.現在のWebシステムで基本的にHTMLは1つのフ
 "表示速度が0.1秒遅くなれば1％売り上げが減少し，1秒早くなれば10%売り上げが増加する"らしい
 
 
+↓次の記事
 @[card](https://zenn.dev/hayaourata/articles/learning_react2)
