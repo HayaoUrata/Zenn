@@ -69,3 +69,4 @@ divElement.textContent = null;
 それを踏まえてReactへGO!!!
 
 ↓次の記事
+@[card](https://zenn.dev/hayaourata/articles/learning_react4)
