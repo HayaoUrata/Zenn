@@ -188,3 +188,4 @@ const func = profile.filter((name) => {
 ```js
 const hoge = 0 > 1 ? "Trueです" : "Falseです"
 ```
+@[card](https://zenn.dev/hayaourata/articles/learning_react3)
