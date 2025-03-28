@@ -31,6 +31,7 @@ $ npx zenn init
 
 ## 記事の作成
 ```
+articles配下に記事を作成
 $ npx zenn new:article
 $ npx zenn new:article --slug 記事のスラッグ --title タイトル --type idea --emoji ✨
 ```
