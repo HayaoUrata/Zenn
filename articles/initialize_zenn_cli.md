@@ -47,6 +47,12 @@ $ npx zenn new:article --slug 記事のスラッグ --title タイトル --type 
         ここから本文を書く
 ```
 
+## git-hubとzennの連携
+githubとzennを連携させる必要がある．下のリンクから連携する．連携できるリポジトリは最大2個らしいので，all repositoriesを選ぶとできない．
+
+https://zenn.dev/dashboard/deploys
+
+
 ## git-hubのリモートリポジトリの確認，設定
 ```
 $ git remote -v
