@@ -1,5 +1,5 @@
 ---
-title: "ZennのCLIの初期設定"
+title: "Zennの記事執筆をCLIでやりたい"
 emoji: "🔥"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [zenn, cli, github]
@@ -7,7 +7,7 @@ published: true
 published_at: 2025-03-28 12:40
 ---
 
-CLIを使いたい
+Zennの記事執筆にCLIを使いたい
 -----
 zennの記事をCLIを使ってVScodeから書けることがわかったので，そのための初期設定などを忘れないように書いておきます．公式の記事を参考にしています．
 
