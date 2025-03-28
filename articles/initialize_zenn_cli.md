@@ -11,7 +11,7 @@ CLIを使いたい
 -----
 zennの記事をCLIを使ってVScodeから書けることがわかったので，そのための初期設定などを忘れないように書いておきます．公式の記事を参考にしています．
 
-## CLIをインストール
+## 1．CLIをインストール
 ```
 $ npm init --yes
 ```
@@ -20,7 +20,7 @@ $ npm init --yes
 npm install zenn-cli
 ```
 
-## セットアップ
+## 2．setup
 ```
 $ npx zenn init
 ```
@@ -30,7 +30,6 @@ $ npx zenn init
 
 ## 記事の作成
 ```
-
 $ npx zenn new:article
 $ npx zenn new:article --slug 記事のスラッグ --title タイトル --type idea --emoji ✨
 ```
@@ -49,7 +48,6 @@ $ npx zenn new:article --slug 記事のスラッグ --title タイトル --type 
 
 ## git-hubとzennの連携
 githubとzennを連携させる必要がある．下のリンクから連携する．連携できるリポジトリは最大2個らしいので，all repositoriesを選ぶとできない．
-
 https://zenn.dev/dashboard/deploys
 
 
@@ -72,4 +70,4 @@ $ git branch --set-upstream-to=origin/main
 ```
 $ npx zenn preview
 ```
-ローカルホストでプレビューできる
+ローカルホストでプレビューできる．やったね！
