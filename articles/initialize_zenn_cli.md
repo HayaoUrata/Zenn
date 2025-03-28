@@ -29,7 +29,7 @@ $ npx zenn init
 ->この下に記事が追加されてく
 ->一旦booksは無視
 
-## 記事の作成
+## 3.記事の作成
 ```
 articles配下に記事を作成
 $ npx zenn new:article
@@ -48,18 +48,18 @@ $ npx zenn new:article --slug 記事のスラッグ --title タイトル --type 
         ここから本文を書く
 ```
 
-## git-hubとzennの連携
+## 4.git-hubとzennの連携
 githubとzennを連携させる必要がある．下のリンクから連携する．連携できるリポジトリは最大2個らしいので，all repositoriesを選ぶとできない．
 https://zenn.dev/dashboard/deploys
 
 
-## git-hubのリモートリポジトリの確認，設定
+## 5.git-hubのリモートリポジトリの確認，設定
 ```
 $ git remote -v
 $ git remote add origin https://github.com/ユーザ名とか/githubリポジトリ名
 ```
 
-## push
+## 6.push
 ```
 $ git push --set-upstream origin main
 ```
@@ -68,7 +68,7 @@ $ git push --set-upstream origin main
 $ git branch --set-upstream-to=origin/main
 ```
 
-## preview
+## 7.preview
 ```
 $ npx zenn preview
 ```
