@@ -12,10 +12,11 @@ CLIを使いたい
 zennの記事をCLIを使ってVScodeから書けることがわかったので，そのための初期設定などを忘れないように書いておきます．公式の記事を参考にしています．
 
 ## 1．CLIをインストール
+最初にローカルのディレクトリを初期化
 ```
 $ npm init --yes
 ```
-最初にローカルのディレクトリを初期化
+インストール
 ```
 npm install zenn-cli
 ```
@@ -57,7 +58,7 @@ $ git remote -v
 $ git remote add origin https://github.com/ユーザ名とか/githubリポジトリ名
 ```
 
-## プッシュ
+## push
 ```
 $ git push --set-upstream origin main
 ```
@@ -66,7 +67,7 @@ $ git push --set-upstream origin main
 $ git branch --set-upstream-to=origin/main
 ```
 
-## プレビュー
+## preview
 ```
 $ npx zenn preview
 ```
