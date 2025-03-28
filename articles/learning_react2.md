@@ -6,7 +6,7 @@ topics: [react, javascript, typescript]
 published: true
 published_at: 2025-03-28 18:24
 ---
-まずはモダンJavaScriptを簡単に復習
+# モダンJavaScriptの復習
 
 ### 変数宣言
 ```js
