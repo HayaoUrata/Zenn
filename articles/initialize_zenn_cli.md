@@ -37,7 +37,7 @@ $ npx zenn new:article --slug 記事のスラッグ --title タイトル --type 
 ```
 ->slugはIDみたいなもん
 ->作成される記事の先頭にyaml形式の設定がある
-```
+```yml
         ---
         title: "" # 記事のタイトル
         emoji: "😸" # アイキャッチとして使われる絵文字（1文字だけ）
