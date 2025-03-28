@@ -17,21 +17,21 @@ var value = "hogehoge"
 基本的にはconst,letを使っていく
 - letは上書き可能，再宣言不可
 ```js
-<!-- 上書きはOK -->
+// 上書きはOK
 let value = "hoge1"
 value = "hoge2"
 
-<!-- 再宣言はだめ -->
+// 再宣言はだめ
 let value = "hoge1"
-<!-- エラー -->
+// エラー
 let value = "hoge2"
 ```
 
 - constは上書きも再宣言もできない定数
 ```js
-<!-- 上書きもだめ -->
+// 上書きもだめ
 const value = "hoge1"
-<!-- エラー -->
+// エラー
 value = "hoge2"
 ```
 
@@ -87,8 +87,8 @@ const profile (
         age: 20,
     }
 )
-<!-- いつもはprofile.nameとかでアクセスしてた -->
-<!-- 分割代入だとオブジェクト内で定義されてるやつを取り出しとくことができる-->
+// いつもはprofile.nameとかでアクセスしてた
+// 分割代入だとオブジェクト内で定義されてるやつを取り出しとくことができる
 const { name, age } = profile
 const message = `${name}です．`
 ```
@@ -123,13 +123,13 @@ const{ name = "hoge"} = profile
 ...を使って要素を展開できる.例えば関数への代入とかで役立つ
 ```js
 const array = [1,2,3]
-<!-- 1 2 3 が格納される -->
+// 1 2 3 が格納される
 console.log(...array) 
 ```
 要素をまとめることも可能
 ```js
 const array = [1,2,3,4,5,6,7]
-<!-- それぞれ1, 2, [4,5,6,7]が代入される -->
+// それぞれ1, 2, [4,5,6,7]が代入される
 const {num1, num2, ...nums} = array
 ```
 コピー，結合にも使える．...で複数要素を取り出してるのでそれを[]で囲めば新たな配列ができるイメージ
@@ -154,3 +154,37 @@ const value = {
 ※ESLintという静的解析ツールがあり,varでの定義とか,console.logとか使っってない変数とかをチェックできる.Prettierと合わせて使われる．
 
 ### map, filter
+mapは配列のループ処理とかの記述量を削減する仕組み．
+配列を順番に処理して結果を配列として受け取る．配列.map()という形で使用．
+ごちゃごちゃするので記述ステップごとに分解して解説
+Step.1　map関数の()中にアロー関数を書く
+```js
+const profile = ["hoge1", "hoge2", "hoge3"]
+const func = profile.map(() => {})
+```
+Step.2　関数は引数を持てる．
+関数の引数(ここではname)に配列の値が格納されてく
+```js
+const profile = ["hoge1", "hoge2", "hoge3"]
+const func = profile.map((name) => {
+    return name
+})
+```
+ちなみに第2引数はindexが入ってくる
+map(name, index) => みたいな書き方でindexを取得できる
+
+
+filterは基本的にmapと同じだけど，returnの後に条件式を書いて，それに該当する要素だけが返される．
+```js
+const profile = [1, 2, 3, 4, 5, 6]
+// 条件に合致する1, 3, 5だけが返される
+const func = profile.filter((name) => {
+    return num % 2 === 1;
+})
+```
+
+### 三項演算子
+条件　? 条件がTrueの時の処理 : 条件がFalseの時の処理
+```js
+const hoge = 0 > 1 ? "Trueです" : "Falseです"
+```
