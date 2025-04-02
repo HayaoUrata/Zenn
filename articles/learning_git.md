@@ -422,3 +422,44 @@ git push -f　は絶対にダメ
 $ git pull [リモ] [ブラ]
 $ git pull --rebase [リモ] [ブラ] 
 ```
+
+### タグ
+リリースポイント(日付とか)をつけてコミットを見つけやすくできる
+```
+$ git tag
+$ git tag -l "202505"
+```
+タグの作成．注釈付きと軽量版の2種類のタグがある
+まあそういうのがあるとわかってればいいかな
+```
+# アノテーション
+$ git tag -a [タグ名] -m [メッセージ]
+#軽量
+$ git tag [タグ名]
+```
+タグの表示　これでタグに紐づいたコミットの情報を表示できる
+```
+$ git show [タグ名]
+```
+タグはgit pushで送信されないので別途
+```
+$ git push　[リモート名] [タグ名]
+# 一斉送信
+$ git push origin --tags
+```
+### 作業の一時避難 stash
+急遽作業中に別の作業(バグ修正とか)をする必要が出た時に今の作業をstash
+```
+$ git stash
+$ git stash save
+#　確認
+$ git stash list
+# 復元　特定の作業の場合はlstの[スタッシュ名]をつける
+$ git stash apply
+#ステージ情報も復元
+$ git stash apply --index
+#　避難したやつを削除 特定の作業の場合はlstの[スタッシュ名]をつける
+$ git stash drop
+#全部消す
+$ git stash clear
+```
