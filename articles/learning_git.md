@@ -64,7 +64,7 @@ $ git version
 ```terminal.
 $ git config --global user.name [githubのユーザーネーム]
 $ git config --global user.email [githubに登録したemail]
-<!-- VSCodeは [code --wait]-->
+# VSCodeは [code --wait]
 $ git config --global core.editor [使用するエディター名]
 ```
 確認
@@ -72,7 +72,7 @@ $ git config --global core.editor [使用するエディター名]
 $ git config user.name
 $ git config user.email
 $ git config core.editor
-<!-- 全部見たい時はこれ -->
+# 全部見たい時はこれ
 $ git config --list
 ```
 configファイルの実態
@@ -96,7 +96,7 @@ $ git clone [リポジトリ名]
 ```
 $ git add [ファイル名]
 $ git add [ディレクトリ名]
-<!-- 全部追加 -->
+# 全部追加
 $ git add .
 ```
 ### ローカルリポジトリにコミット
@@ -115,14 +115,14 @@ $ git commit -v
 - ワークツリーとステージ間
 - ステージとリポジトリ間
 ```
-<!-- 変更状況 -->
+# 変更状況
 $ git status
-<!-- 変更差分 -->
-<!-- git addする前の変更差分(ワークツリー，ステージ間) -->
+# 変更差分
+# git addする前の変更差分(ワークツリー，ステージ間)
 $ git diff [ファイル名]
-<!-- git addした後の変更差分(ステージ，リポジトリ間) -->
+# git addした後の変更差分(ステージ，リポジトリ間)
 $ git diff --staged
-<!-- 変更履歴(最新の変更からb表示される -->
+# 変更履歴(最新の変更からb表示される
 $ git log
 $ git log -oneline
 $ git log -p [ファイル名]
@@ -143,7 +143,7 @@ $ git rm --cached [ファイル名]
 ```
 $ git mv [旧ファイル] [新ファイル]
 
-<!-- やっていることは以下のコマンド群と同じ -->
+# やっていることは以下のコマンド群と同じ
 $ mv [旧ファイル] [新ファイル]
 $ git rm [旧ファイル]
 $ git add [新ファイル]
@@ -160,7 +160,7 @@ git remote add origin https://github.com/[ユーザー名]/[リポジトリ名].
 ```
 $ git push [リモートリポジトリ名] [ブランチ名]
 $ git push -u origin master
-<!-- このコマンドを打つと次回以降git pushだけで良くなる -->
+# このコマンドを打つと次回以降git pushだけで良くなる
 $ git push origin master
 ```
 初回はユーザー名とパーソナルアクセストークン(github側で作成)を聞かれる
@@ -172,4 +172,20 @@ $ git config --global alias.ci commit
 $ git config --global alias.st status
 $ git config --global alias.br branch
 $ git config --global alias.co checkout
+```
+
+### 変更取り消し
+ワークツリーの変更を消す->ワークツリーの状態をステージと同じ状態に戻してる
+```
+$ git checkout -- [ファイル名]
+$ git checkout -- [ディレクトリ名]
+# 前変更取り消し
+$ git checkout -- .
+```
+ステージに追加した変更を消す->リポジトリの状態(直前のコミット)で上書きして無かったことにしている
+```
+$ git reset HEAD [ファイル名]
+$ git reset HEAD [ディレクトリ名]
+# 全変更取り消し
+$ git reset HEAD .
 ```
