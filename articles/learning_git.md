@@ -326,3 +326,73 @@ $ git branch -d feature
 # 強制削除
 $ git branch D [ブランチ名]
 ```
+### 開発の流れ
+前提
+開発時にはmainブランチはリリース専用にして，開発用はトピックごとにブランチを切ってく
+mainは今リリースされているものと同じ状態になる
+
+レビューのためにpullリクエスト
+1. mainブランチを最新に更新
+```
+$ git pull origin main
+```
+2. ブランチを作成
+```
+$ git checkout -b pull_request
+```
+3. (変更後に)変更をステージング
+```
+$ git add index.html
+```
+
+4. コミット(ここまではローカル)
+```
+$ git commit -m "hogehoge"
+```
+5. githubへプッシュ
+```
+$ git push origin/pull_request
+```
+6. プルリクエスト
+githubでプルリクエスと作成
+new pull request -> base:main(元のやつ) compare:pull_request(ブランチきったやつ) -> 本文書く
+7. チームメンバーがコードレビュー
+reviewerを選択
+reviewerはメールが来るので，pull_requestタブからpull_equestの内容を見る -> files changed
+行の横の+ボタンでレビュー内容をかける
+review chagesボタンでapprove
+8. プルリクエストをマージ
+github上でマージボタンを使ってマージ
+9. ブランチを削除
+```
+$ git branch -d pull_request
+```
+
+### github flow
+mainはつでにデプロイできる状態に保っておく
+新しい開発はmainブランチから新しいブランチを切って作る
+この新しいブランチで開発，コミット，定期的にプッシュ
+完了したらプルリクエスト
+必ずレビューを受ける
+```
+# マスターブランチを確認
+$ git branch
+# 変更されてないか確認
+$ git status
+# マスタープランチを最新の状態にする
+$ git pull origin master
+# 新しいブランチを作成
+$ git checkout -b github_flow
+$ git add [変更ファイル名]
+$ git commit -V
+# ブランチをプッシュ
+$ git push origin github_flow
+# githubでpull_request作成
+# reviewers追加
+# reviewerはreview changedボタンからapprove
+# marge pull requestボタン->mergeボタン->delete branchボタン
+# ブランチの削除
+$ git branch -d [すでにマージされたブランチ名]
+```
+### リベース
+変更を統合の際に，履歴をきれいに整えるために使用
