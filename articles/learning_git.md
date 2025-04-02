@@ -159,5 +159,17 @@ git remote add origin https://github.com/[ユーザー名]/[リポジトリ名].
 一度登録した後は以下のコマンドでOK
 ```
 $ git push [リモートリポジトリ名] [ブランチ名]
+$ git push -u origin master
+<!-- このコマンドを打つと次回以降git pushだけで良くなる -->
 $ git push origin master
+```
+初回はユーザー名とパーソナルアクセストークン(github側で作成)を聞かれる
+
+### エイリアスによるコマンドの短縮
+--globalでPCのホームディレクトリ配下全てがエイリアスの対象になるよ
+```
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+$ git config --global alias.br branch
+$ git config --global alias.co checkout
 ```
