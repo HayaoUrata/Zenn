@@ -251,4 +251,78 @@ $ git remote rm tutorial
 ```
 
 ### ブランチ
-コミットを指し示したポインタ
+- ブランチ:コミットを指し示したポインタ
+- ヘッダ:今自分が作業しているブランチを指し示したポインタ
+どちらもリポジトリ内に保存される
+mainとmain2があったとして，これらがcommitを指してるとする
+mainでコミットするとmainが指すのはcommit2になる
+この状態でmain2でコミットするとmain2が指すのはcommit2'
+->ブランチが指すコミットが分かれるので，開発が分岐できる
+
+ブランチの追加
+```
+#ブランチを作成するだけでブランチの切り替えはしない
+$ git branch [ブランチ名]
+$ git branch feature
+```
+ブランチの表示
+```
+$ git branch
+$ git branch -a
+```
+ブランチの切り替え
+```
+$ git checkout [既存ブランチ名]
+$ git checkout feature
+# 新しく作って切り替え
+$ git checkout -b [新規ブランチ名]
+# featureをgithubにプッシュ
+$ git push origin feature
+$ git checkout main
+# mainをgithubにプッシュ
+$ git push origin main
+
+```
+変更履歴のマージ．他のブランチの変更点を自分の作業中のブランチにマージする
+```
+$ git merge [ブランチ名]
+$ git merge [リモート名]/[ブランチ名]
+$ git merge origin/master
+```
+3種類のマージ
+- Fast Forward:mainのブランチを新しく作ったブランチを参照するように変更
+    枝分かれはせず参照するコミットが一個進むだけ
+    バグをすぐに修正したい時とか
+- Auto merge:基本的なマージ
+    別のブランチの内容をmainとかからmergeする
+    分岐しているのを統合した新しいコミットができてそれを参照するようになる
+    親を2つ持っている
+
+コンフリクト:同じファイルの同じ箇所を変更すると衝突が起きる．どっちを優先すればいいかわからない
+```
+<<<<<<< HEAD
+HEADの変更
+========
+他のブランチの変更
+>>>>>>> feature
+```
+解決方法
+- ファイルの内容を書き換えて<<,==,>>を消す
+予防
+- 複数人で同じファイルを触らない
+- merge，pullのとき変更中の状態をなくす(commitやstash)
+- pullするときはpullするブランチに移動してからpull ->　自分が今いるブランチにマージされちゃうから　fetchのほうが安心
+
+ブランチ名の変更，ブランチの削除
+```
+# 自分が今いるブランチ名を変更
+$ git branch -m [ブランチ名]
+$ git branch -m new_branch
+```
+```
+# 削除(安全:まだマージされていない変更がある場合は削除されない)
+$ git branch -d [ブランチ名]
+$ git branch -d feature
+# 強制削除
+$ git branch D [ブランチ名]
+```
