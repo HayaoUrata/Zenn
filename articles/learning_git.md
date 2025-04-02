@@ -176,6 +176,7 @@ $ git config --global alias.co checkout
 
 ### 変更取り消し
 ワークツリーの変更を消す->ワークツリーの状態をステージと同じ状態に戻してる
+ブランチと見分けるために--を使う
 ```
 $ git checkout -- [ファイル名]
 $ git checkout -- [ディレクトリ名]
@@ -199,8 +200,55 @@ $ git commit --amend
 ※pushした内容は書き換えちゃダメ
 
 ### 設定しているリモートリポジトリの状態取得
-```command
+```
 $ git remote
-# 対応するURLを取得
+# 対応するURLを表示
 $ git remote -v
 ```
+
+### リモートリポジトリの複数登録
+チーム開発で自分のリポジトリを持っておきたいとき
+```
+$ git remote add [リモート名] [リモートURL]
+# mainの内容を新しく作ったリモートリポジトリにもpush
+$ git push -u [新しいリモート名] main
+```
+
+### リモートから情報を取得(やり方は2つfetchとpull)
+fetch->自分のリポジトリにリモートリポジトリの内容を持ってくる
+remote/リモート/ブランチ　に保存される(ローカルのリモート専用のところ)
+```
+$ git fetch [リモート名]
+$ git fetch origin
+# 自分のワークツリーの方に持ってくる
+$ git marge
+# ブランチの全部の情報を見る->今いるブランチ名と持ってきた変更のブランチ(remote/)が見れる
+$ git branch -a
+# 自分のワークツリーを切り替える
+$ git checkout remotes/origin/main
+```
+
+pull->マージまでを一つのコマンドでできる
+ワークツリーへの反映までを一つのコマンドで実行できる
+```
+$ git pull [リモート名] [ブランチ名]
+$ git pull origin main
+```
+※git pullすると今自分がいるワークツリーにマージされちゃう　間違って統合される可能性があるので注意
+
+リモートの情報を取得
+```
+$ git remote show [リモート名]
+$ git remote show origin
+```
+### リモート名の変更，削除
+```
+# リモート名変更
+$ git remote -rename [旧リモート名] [新リモート名]
+# リモート削除
+$ git remote rm [リモート名]
+$ git remote rm tutorial
+```
+
+### ブランチ
+コミットを指し示したポインタ
