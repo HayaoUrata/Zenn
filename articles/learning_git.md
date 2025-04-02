@@ -196,6 +196,8 @@ $ git reset HEAD .
 これに関しては前の状態を持ってくるというより，ステージの内容を書き直して上から塗り替える感じ．再コミットみたいな
 ```
 $ git commit --amend
+#　複数のコミットのやり直し上から3つ(絶対にpushしてないやつ)
+$ git rebase -i HEAD~3
 ```
 ※pushした内容は書き換えちゃダメ
 
@@ -414,3 +416,9 @@ $ git merge feature
 git push -f　は絶対にダメ
 ```
 
+マージとリベース
+--rebaseをつけるとマージコミットが残らない
+```
+$ git pull [リモ] [ブラ]
+$ git pull --rebase [リモ] [ブラ] 
+```
