@@ -6,4 +6,5 @@ topics: [remix, react, typescript, javascript]
 published: false
 ---
 
-本文
+---
+# Remixを勉強する
